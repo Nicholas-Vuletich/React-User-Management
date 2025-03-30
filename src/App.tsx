@@ -17,6 +17,10 @@ const pocetniKorisnici: KorisnikType[] = [
 function App() {
   const [korisnici, setKorisnici] = useState<KorisnikType[]>(pocetniKorisnici);
   console.log(korisnici)
+
+  const obrisiKorisnika = (id: number) => {
+    setKorisnici(korisnici.filter(korisnik =>korisnik.id !== id));
+  }
 }
 
 
