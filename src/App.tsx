@@ -21,8 +21,23 @@ function App() {
   const obrisiKorisnika = (id: number) => {
     setKorisnici(korisnici.filter(korisnik =>korisnik.id !== id));
   }
-}
 
+  const dodajKorisnika = (ime:string, email:string, admin:boolean) => {
+    const noviKorisnik: KorisnikType = {
+      id: Date.now(),
+      ime,
+      email,
+      admin,
+    };
+    setKorisnici([...korisnici, noviKorisnik]);
+  };
+  
+  return(
+    <h1>Lista korisnika</h1>
+    <FormaZaDodavanje dodajKorisnika={dodajKorisnika} />
+    
+  )
+}
 
 
 export default App
