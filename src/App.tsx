@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from 'react'
 
 type KorisnikType = {
@@ -33,9 +32,17 @@ function App() {
   };
   
   return(
-    <h1>Lista korisnika</h1>
-    <FormaZaDodavanje dodajKorisnika={dodajKorisnika} />
-    
+    <div>
+      <h1>Lista korisnika</h1>
+      <FormaZaDodavanje dodajKorisnika={dodajKorisnika} />
+      {korisnici.map(korisnik =>
+        korisnik.admin ? (
+          <Admin key={korisnik.id} korisnik={korisnik} obrisiKorisnika={obrisiKorisnika} />
+        ) : (
+          <Korisnik key={korisnik.id} korisnik={korisnik} />
+        )
+      )}
+    </div>
   )
 }
 
