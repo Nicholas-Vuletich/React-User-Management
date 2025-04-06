@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import FormaZaDodavanje from './components/formaZaDodavanje';
 
-type KorisnikType = {
+export type KorisnikType = {
     id: number;
     ime: string;
     email: string;
@@ -45,6 +46,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App
