@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import FormaZaDodavanje from './components/formaZaDodavanje';
 import Admin from './components/admin'
+import Korisnik from './components/korisnik';
 
 export type KorisnikType = {
     id: number;
@@ -20,6 +21,7 @@ function App() {
   console.log(korisnici)
 
   const obrisiKorisnika = (id: number) => {
+    console.log("Brišem korisnika s id-em:", id);
     setKorisnici(korisnici.filter(korisnik =>korisnik.id !== id));
   }
 
@@ -41,7 +43,7 @@ function App() {
         korisnik.admin ? (
           <Admin key={korisnik.id} korisnik={korisnik} obrisiKorisnika={obrisiKorisnika} />
         ) : (
-          <Korisnik key={korisnik.id} korisnik={korisnik} />
+          <Korisnik key={korisnik.id} korisnik={korisnik} obrisiKorisnika={obrisiKorisnika} />
         )
       )}
     </div>
